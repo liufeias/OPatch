@@ -10,10 +10,9 @@ plugins {
     alias(libs.plugins.agp.app) apply false
     alias(lspatch.plugins.kotlin.android) apply false
 }
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17)) // 目标 JVM 版本
-    }
+tasks.withType<JavaCompile> {
+    sourceCompatibility = "17"  // 设置源代码兼容性为 JDK 17
+    targetCompatibility = "17"  // 设置目标字节码兼容性为 JDK 17
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
