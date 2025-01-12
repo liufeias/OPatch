@@ -55,7 +55,7 @@ jobs:
       uses: gradle/actions/setup-gradle@v4
       with:
         gradle-version: 8.6
-        gradle-home-cache-cleanup: true
+        cache-cleanup: true
 
     - name: Set up ccache
       uses: hendrikmuhs/ccache-action@v1.2
