@@ -14,7 +14,11 @@ plugins {
     alias(lspatch.plugins.kotlin.android)
     id("kotlin-parcelize")
 }
-
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17)) // 目标 JVM 版本
+    }
+}
 android {
     defaultConfig {
         applicationId = defaultManagerPackageName
