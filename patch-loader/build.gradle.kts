@@ -3,7 +3,17 @@ import java.util.Locale
 plugins {
     alias(libs.plugins.agp.app)
 }
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17)) // 目标 JVM 版本
+    }
+}
 
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions {
+        jvmTarget = "17" // 与 Java 保持一致
+    }
+}
 android {
     defaultConfig {
         multiDexEnabled = false
